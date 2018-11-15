@@ -62,9 +62,28 @@ class FA_Plus(QtGui.QMainWindow):
 
         self.main_ui.btnExit.clicked.connect(lambda : QtCore.QCoreApplication.exit(0))
 
+        self.main_ui.btnSimulate.clicked.connect(self.make_prediction)
+
     def make_prediction(self):
 
-        pass
+
+        data = [self.main_ui.spnSalary.value(),
+                self.main_ui.spnAge.value(),
+                self.main_ui.spnLoan.value()]
+
+
+        pred = self.decision.make_prediction(
+            self.main_ui.cbAlg.currentIndex(), [data])
+
+        if pred == 1:
+            self.main_ui.lbResult.setText('Não condecer crédito')
+            self.main_ui.lbResult.setStyleSheet('color:red')
+        else:
+
+            self.main_ui.lbResult.setText('Liberar crédito')
+            self.main_ui.lbResult.setStyleSheet('color:green')
+
+        print(pred)
 
     def start(self):
         if (sys.flags.interactive != 1) or not hasattr(QtCore, 'PYQT_VERSION'):

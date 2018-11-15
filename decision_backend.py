@@ -16,8 +16,9 @@ class DecisionBackend():
     trainning_data = {'data':[],
                       'labels':[]}
 
-    NN = 0
-    RF = 1
+    RF = 0
+    NN = 1
+
 
     trained_rf = False
     trained_nn = False
@@ -43,15 +44,23 @@ class DecisionBackend():
 
                 for index, line in enumerate(csv_data):
 
-                    if index == 0: continue # skip the labels
+                    if index == 0 or self.validate_training_data(line) == False:
+
+                        continue # skip the labels
 
                     else:
 
-                        # TODO: validate each line to make sure the data in in the correct format
+                        # is necessary to replace commas with periods for correct type conversion
 
-                        self.trainning_data['data'].append(line[1: (len(line) - 1)])
+                        line = self.format_float_data(line)
 
-                        self.trainning_data['labels'].append(line[(len(line) - 1):])
+                        attributes = line[1: (len(line) - 1)]
+
+                        labels = int(line[(len(line) - 1):][0])
+
+                        self.trainning_data['data'].append(attributes)
+
+                        self.trainning_data['labels'].append(labels)
 
         except FileNotFoundError :
 
@@ -70,7 +79,9 @@ class DecisionBackend():
                 self.neural_net.fit(self.trainning_data['data'],
                                     self.trainning_data['labels'])
 
-            return self.neural_net.predict(data)
+                self.trained_nn = True
+
+            return self.neural_net.predict(data)[0]
 
         elif algorithm == self.RF:
 
@@ -79,4 +90,36 @@ class DecisionBackend():
                 self.rnd_forest.fit(self.trainning_data['data'],
                                     self.trainning_data['labels'])
 
-            return self.rnd_forest.predict(data)
+                self.trained_rf = True
+
+            return self.rnd_forest.predict(data)[0]
+
+
+    def format_float_data(self, line: list) -> list:
+
+        new_list = []
+
+        for i in line:
+
+            new_list.append(float(i.replace(',', '.')))
+
+        return new_list
+
+    def validate_training_data(self, line: list):
+
+        if len(line) < 5:
+
+            return False
+
+        for i in line:
+
+            if i == '': return False
+
+            else:
+
+                i = i.replace(',','.')
+
+                if float(i) < 0:
+
+                    return False
+

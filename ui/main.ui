@@ -7,11 +7,23 @@
     <x>0</x>
     <y>0</y>
     <width>499</width>
-    <height>332</height>
+    <height>330</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>499</width>
+    <height>330</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>499</width>
+    <height>330</height>
+   </size>
+  </property>
   <property name="windowTitle">
-   <string>FinalcyAnalyzer+</string>
+   <string>FinalciAnalyzer+</string>
   </property>
   <property name="windowIcon">
    <iconset resource="main.qrc">
@@ -43,7 +55,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>110</y>
+     <y>106</y>
      <width>481</width>
      <height>201</height>
     </rect>
@@ -106,36 +118,6 @@ Todas as categorias de informação são obrigatórias.</string>
     </property>
     <property name="text">
      <string>Empréstimo:</string>
-    </property>
-   </widget>
-   <widget class="QComboBox" name="cbSalary">
-    <property name="geometry">
-     <rect>
-      <x>80</x>
-      <y>110</y>
-      <width>111</width>
-      <height>22</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QComboBox" name="cbAge">
-    <property name="geometry">
-     <rect>
-      <x>80</x>
-      <y>140</y>
-      <width>111</width>
-      <height>22</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QComboBox" name="cbRent">
-    <property name="geometry">
-     <rect>
-      <x>80</x>
-      <y>170</y>
-      <width>111</width>
-      <height>22</height>
-     </rect>
     </property>
    </widget>
    <widget class="QComboBox" name="cbAlg">
@@ -222,12 +204,90 @@ Todas as categorias de informação são obrigatórias.</string>
      <enum>Qt::RichText</enum>
     </property>
    </widget>
+   <widget class="QDoubleSpinBox" name="spnSalary">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>109</y>
+      <width>141</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+    <property name="prefix">
+     <string>R$ </string>
+    </property>
+    <property name="decimals">
+     <number>2</number>
+    </property>
+    <property name="minimum">
+     <double>100.000000000000000</double>
+    </property>
+    <property name="maximum">
+     <double>99999999.000000000000000</double>
+    </property>
+    <property name="value">
+     <double>100.000000000000000</double>
+    </property>
+   </widget>
+   <widget class="QDoubleSpinBox" name="spnAge">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>139</y>
+      <width>141</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+    <property name="prefix">
+     <string/>
+    </property>
+    <property name="decimals">
+     <number>0</number>
+    </property>
+    <property name="minimum">
+     <double>16.000000000000000</double>
+    </property>
+    <property name="maximum">
+     <double>10000000.000000000000000</double>
+    </property>
+   </widget>
+   <widget class="QDoubleSpinBox" name="spnLoan">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>169</y>
+      <width>141</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+    <property name="prefix">
+     <string>R$ </string>
+    </property>
+    <property name="decimals">
+     <number>2</number>
+    </property>
+    <property name="minimum">
+     <double>100.000000000000000</double>
+    </property>
+    <property name="maximum">
+     <double>99999999.000000000000000</double>
+    </property>
+   </widget>
   </widget>
   <widget class="QLabel" name="label_7">
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>310</y>
+     <y>307</y>
      <width>500</width>
      <height>20</height>
     </rect>

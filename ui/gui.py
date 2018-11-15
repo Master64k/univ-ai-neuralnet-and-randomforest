@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'main.ui'
+# Form implementation generated from reading ui file 'ui\main.ui'
 #
-# Created: Mon Nov 12 00:47:41 2018
+# Created: Thu Nov 15 01:33:17 2018
 #      by: pyside-uic 0.2.15 running on PySide 1.2.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -12,7 +12,9 @@ from PySide import QtCore, QtGui
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
-        Dialog.resize(499, 332)
+        Dialog.resize(499, 330)
+        Dialog.setMinimumSize(QtCore.QSize(499, 330))
+        Dialog.setMaximumSize(QtCore.QSize(499, 330))
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(":/icon/fa+.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         Dialog.setWindowIcon(icon)
@@ -26,7 +28,7 @@ class Ui_Dialog(object):
         self.frame.setFrameShadow(QtGui.QFrame.Raised)
         self.frame.setObjectName("frame")
         self.groupBox = QtGui.QGroupBox(Dialog)
-        self.groupBox.setGeometry(QtCore.QRect(10, 110, 481, 201))
+        self.groupBox.setGeometry(QtCore.QRect(10, 106, 481, 201))
         self.groupBox.setObjectName("groupBox")
         self.label = QtGui.QLabel(self.groupBox)
         self.label.setGeometry(QtCore.QRect(10, 20, 461, 81))
@@ -40,15 +42,6 @@ class Ui_Dialog(object):
         self.label_4 = QtGui.QLabel(self.groupBox)
         self.label_4.setGeometry(QtCore.QRect(10, 170, 61, 16))
         self.label_4.setObjectName("label_4")
-        self.cbSalary = QtGui.QComboBox(self.groupBox)
-        self.cbSalary.setGeometry(QtCore.QRect(80, 110, 111, 22))
-        self.cbSalary.setObjectName("cbSalary")
-        self.cbAge = QtGui.QComboBox(self.groupBox)
-        self.cbAge.setGeometry(QtCore.QRect(80, 140, 111, 22))
-        self.cbAge.setObjectName("cbAge")
-        self.cbRent = QtGui.QComboBox(self.groupBox)
-        self.cbRent.setGeometry(QtCore.QRect(80, 170, 111, 22))
-        self.cbRent.setObjectName("cbRent")
         self.cbAlg = QtGui.QComboBox(self.groupBox)
         self.cbAlg.setGeometry(QtCore.QRect(320, 110, 121, 22))
         self.cbAlg.setObjectName("cbAlg")
@@ -70,15 +63,38 @@ class Ui_Dialog(object):
         self.lbResult.setGeometry(QtCore.QRect(324, 140, 61, 16))
         self.lbResult.setTextFormat(QtCore.Qt.RichText)
         self.lbResult.setObjectName("lbResult")
+        self.spnSalary = QtGui.QDoubleSpinBox(self.groupBox)
+        self.spnSalary.setGeometry(QtCore.QRect(80, 109, 141, 21))
+        self.spnSalary.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.spnSalary.setDecimals(2)
+        self.spnSalary.setMinimum(100.0)
+        self.spnSalary.setMaximum(99999999.0)
+        self.spnSalary.setProperty("value", 100.0)
+        self.spnSalary.setObjectName("spnSalary")
+        self.spnAge = QtGui.QDoubleSpinBox(self.groupBox)
+        self.spnAge.setGeometry(QtCore.QRect(80, 139, 141, 21))
+        self.spnAge.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.spnAge.setPrefix("")
+        self.spnAge.setDecimals(0)
+        self.spnAge.setMinimum(16.0)
+        self.spnAge.setMaximum(10000000.0)
+        self.spnAge.setObjectName("spnAge")
+        self.spnLoan = QtGui.QDoubleSpinBox(self.groupBox)
+        self.spnLoan.setGeometry(QtCore.QRect(80, 169, 141, 21))
+        self.spnLoan.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.spnLoan.setDecimals(2)
+        self.spnLoan.setMinimum(100.0)
+        self.spnLoan.setMaximum(99999999.0)
+        self.spnLoan.setObjectName("spnLoan")
         self.label_7 = QtGui.QLabel(Dialog)
-        self.label_7.setGeometry(QtCore.QRect(0, 310, 500, 20))
+        self.label_7.setGeometry(QtCore.QRect(0, 307, 500, 20))
         self.label_7.setObjectName("label_7")
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
     def retranslateUi(self, Dialog):
-        Dialog.setWindowTitle(QtGui.QApplication.translate("Dialog", "FinalcyAnalyzer+", None, QtGui.QApplication.UnicodeUTF8))
+        Dialog.setWindowTitle(QtGui.QApplication.translate("Dialog", "FinalciAnalyzer+", None, QtGui.QApplication.UnicodeUTF8))
         self.groupBox.setTitle(QtGui.QApplication.translate("Dialog", "Análise", None, QtGui.QApplication.UnicodeUTF8))
         self.label.setText(QtGui.QApplication.translate("Dialog", "Bem vindo ao FinanciAnalyzer plus.\n"
 "\n"
@@ -94,6 +110,8 @@ class Ui_Dialog(object):
         self.btnExit.setText(QtGui.QApplication.translate("Dialog", "Sair", None, QtGui.QApplication.UnicodeUTF8))
         self.btnSimulate.setText(QtGui.QApplication.translate("Dialog", "Simular", None, QtGui.QApplication.UnicodeUTF8))
         self.lbResult.setText(QtGui.QApplication.translate("Dialog", "<html><head/><body><p><span style=\" font-weight:600;\">--</span></p></body></html>", None, QtGui.QApplication.UnicodeUTF8))
+        self.spnSalary.setPrefix(QtGui.QApplication.translate("Dialog", "R$ ", None, QtGui.QApplication.UnicodeUTF8))
+        self.spnLoan.setPrefix(QtGui.QApplication.translate("Dialog", "R$ ", None, QtGui.QApplication.UnicodeUTF8))
         self.label_7.setText(QtGui.QApplication.translate("Dialog", "<html><head/><body><p align=\"center\">© 2018 - Master64k</p></body></html>", None, QtGui.QApplication.UnicodeUTF8))
 
-import main_rc
+import ui.gui_rc
